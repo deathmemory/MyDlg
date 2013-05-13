@@ -1,0 +1,100 @@
+00544D4E    6A 01           push    1                                ; 1111
+00544D50    33C0            xor     eax, eax
+00544D52    8AC3            mov     al, bl
+00544D54    50              push    eax
+00544D55    6A 00           push    0
+00544D57    6A 00           push    0
+00544D59    6A 00           push    0
+00544D5B    A1 E0C16A00     mov     eax, dword ptr [6AC1E0]
+00544D60    8B00            mov     eax, dword ptr [eax]
+00544D62    8B48 04         mov     ecx, dword ptr [eax+4]
+00544D65    A1 04C56A00     mov     eax, dword ptr [6AC504]
+00544D6A    8B00            mov     eax, dword ptr [eax]
+00544D6C    BA 1A040000     mov     edx, 41A
+00544D71    E8 823A0F00     call    006387F8                         ; call hero last
+
+6A??33??8A??506A??6A??6A??A1????????8B??8B????A1????????8B??BA????????E8
+
+6A**33**8A**506A**6A**6A**A1********8B**8B****A1********8B**BA********E8
+11DE9A80
+00E28660
+
+*(DWORD*)((*(DWORD*)*(DWORD*)*(DWORD*)(dwAddr+14))+4)
+00519AE9    8A50 04         mov     dl, byte ptr [eax+4]
+00519AEC    A1 54CA6A00     mov     eax, dword ptr [6ACA54]
+00519AF1    8B00            mov     eax, dword ptr [eax]
+00519AF3    E8 2CB20200     call    00544D24                         ; call hero ~
+00519AF8   /E9 9D000000     jmp     00519B9A
+
+8A????A1????????8B??E8????????E9
+
+
+
+006387F8    55              push    ebp                              ; last call hero func
+006387F9    8BEC            mov     ebp, esp
+006387FB    53              push    ebx
+006387FC    8B5D 18         mov     ebx, dword ptr [ebp+18]
+006387FF    53              push    ebx
+00638800    8B5D 14         mov     ebx, dword ptr [ebp+14]
+00638803    53              push    ebx
+00638804    8B5D 10         mov     ebx, dword ptr [ebp+10]
+00638807    53              push    ebx
+00638808    8B5D 0C         mov     ebx, dword ptr [ebp+C]
+0063880B    53              push    ebx
+0063880C    E8 DF020000     call    00638AF0
+
+558B??538B????538B????538B????538B????53E8
+
+
+
+00544D4E    6A 01           push    1
+00544D50    33C0            xor     eax, eax
+00544D52    8AC3            mov     al, bl
+00544D54    50              push    eax
+00544D55    6A 00           push    0
+00544D57    6A 00           push    0
+00544D59    6A 00           push    0
+00544D5B    A1 E0C16A00     mov     eax, dword ptr [6AC1E0]
+
+6A??33??8A??506A??6A??6A??A1
+
+
+0012FEB8   00000000
+0012FEBC   00000000
+0012FEC0   00000000
+0012FEC4   00000001
+0012FEC8   00000001
+0012FECC   00000002
+0012FED0   0000000A
+
+
+
+---------------------------
+错误
+---------------------------
+sc failed !
+---------------------------
+确定   
+---------------------------
+
+---------------------------
+错误
+---------------------------
+sc chaddr !
+---------------------------
+确定   
+---------------------------
+538B??E8????????8B??????????2B??3D????????76??E8
+
+00544D24    53              push    ebx                              ; call hero !
+00544D25    56              push    esi
+00544D26    8BDA            mov     ebx, edx
+00544D28    8BF0            mov     esi, eax
+00544D2A    E8 55C1F2FF     call    00470E84
+00544D2F    2B46 04         sub     eax, dword ptr [esi+4]
+00544D32    3D E8030000     cmp     eax, 3E8
+00544D37    76 3D           jbe     short 00544D76
+00544D39    E8 46C1F2FF     call    00470E84
+
+53568B??8B??E8????????2B????3D????????76??E8
+

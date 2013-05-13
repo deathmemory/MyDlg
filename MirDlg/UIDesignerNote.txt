@@ -1,0 +1,3 @@
+UIdesigner note
+
+1.tab 页，为避免第一选项重复被SetFocus，需要在Tab同级多出Button及以上级的无用控件去占有焦点

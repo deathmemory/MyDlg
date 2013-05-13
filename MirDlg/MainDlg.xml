@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="800,600" sizebox="4,4,6,6" caption="0,0,0,30">
+    <VerticalLayout name="VerticalLayoutUI1" pos="525,165,585,195" width="60" height="30" bkimage="main-normal.png">
+        <HorizontalLayout name="HorizontalLayoutUI1" pos="0,0,800,22" width="800" height="22">
+            <HorizontalLayout name="HorizontalLayoutUI2" pos="0,0,591,22" width="591" height="22" />
+            <HorizontalLayout name="HorizontalLayoutUI3" pos="591,0,801,22" width="210" height="22">
+                <Button name="btn_close" float="true" pos="165,0,210,22" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_close2-47x22.png&apos; source=&apos;0,0,47,22&apos;" hotimage="file=&apos;btn_close2-47x22.png&apos; source=&apos;47,0,94,22&apos;" pushedimage="file=&apos;btn_close2-47x22.png&apos; source=&apos;94,0,141,22&apos;" disabledimage="file=&apos;btn_close2-47x22.png&apos; source=&apos;141,0,188,22&apos;" />
+                <Button name="btn_mini" float="true" pos="126,0,166,22" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_min2-33x22.png&apos; source=&apos;0,0,33,22&apos;" hotimage="file=&apos;btn_min2-33x22.png&apos; source=&apos;33,0,66,22&apos;" pushedimage="file=&apos;btn_min2-33x22.png&apos; source=&apos;66,0,99,22&apos;" disabledimage="file=&apos;btn_min2-33x22.png&apos; source=&apos;99,0,132,22&apos;" />
+            </HorizontalLayout>
+        </HorizontalLayout>
+        <HorizontalLayout name="HorizontalLayoutUI4" pos="0,22,800,570" width="800" height="548">
+            <HorizontalLayout name="HorizontalLayoutUI6" pos="0,0,500,548" width="500" height="548" />
+            <HorizontalLayout name="HorizontalLayoutUI7" pos="662,152,962,700" width="300" height="548">
+                <Button name="ButtonUI1" float="true" pos="57,30,271,115" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn-startgame2-214x85.png&apos; source=&apos;0,0,214,85&apos;" hotimage="file=&apos;btn-startgame2-214x85.png&apos; source=&apos;214,0,428,85&apos;" pushedimage="file=&apos;btn-startgame2-214x85.png&apos; source=&apos;428,0,642,85&apos;" disabledimage="file=&apos;btn-startgame2-214x85.png&apos; source=&apos;642,0,856,85&apos;" />
+                <Option name="opt_close_music" text="关闭登录音乐" float="true" pos="69,130,181,144" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;checkBox-14x14.png&apos; dest=&apos;0,0,14,14&apos; source=&apos;0,0,14,14&apos;" hotimage="file=&apos;checkBox-14x14.png&apos; dest=&apos;0,0,14,14&apos; source=&apos;14,0,28,14&apos;" pushedimage="file=&apos;checkBox-14x14.png&apos; dest=&apos;0,0,14,14&apos; source=&apos;28,0,42,14&apos;" selectedimage="file=&apos;checkBox-14x14.png&apos; dest=&apos;0,0,14,14&apos; source=&apos;0,14,14,28&apos;" />
+                <Option name="OptionUI2" text="进入游戏时关闭Air【退出无广告】" float="true" pos="69,152,296,166" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;checkBox-14x14.png&apos; dest=&apos;0,0,14,14&apos; source=&apos;0,0,14,14&apos;" hotimage="file=&apos;checkBox-14x14.png&apos; dest=&apos;0,0,14,14&apos; source=&apos;14,0,28,14&apos;" pushedimage="file=&apos;checkBox-14x14.png&apos; dest=&apos;0,0,14,14&apos; source=&apos;28,0,42,14&apos;" selectedimage="file=&apos;checkBox-14x14.png&apos; dest=&apos;0,0,14,14&apos; source=&apos;0,14,14,28&apos;" />
+                <Option name="OptionUI3" text="多开游戏" float="true" pos="69,174,160,188" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;checkBox-14x14.png&apos; dest=&apos;0,0,14,14&apos; source=&apos;0,0,14,14&apos;" hotimage="file=&apos;checkBox-14x14.png&apos; dest=&apos;0,0,14,14&apos; source=&apos;14,0,28,14&apos;" pushedimage="file=&apos;checkBox-14x14.png&apos; dest=&apos;0,0,14,14&apos; source=&apos;28,0,42,14&apos;" selectedimage="file=&apos;checkBox-14x14.png&apos; dest=&apos;0,0,14,14&apos; source=&apos;0,14,14,28&apos;" />
+                <Option name="OptionUI1" text="更多设置..." float="true" pos="197,196,280,216" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+            </HorizontalLayout>
+        </HorizontalLayout>
+        <HorizontalLayout name="HorizontalLayoutUI5" pos="146,584,946,614" width="800" height="30" />
+    </VerticalLayout>
+</Window>

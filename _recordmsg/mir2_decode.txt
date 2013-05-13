@@ -1,0 +1,660 @@
+0012FB50   07639ED8
+0012FB54   00000000
+0012FB58   00000000
+0012FB5C   00002B22
+
+EAX 00E28660
+ECX 00000000
+EDX 00000BED
+EBX 04E41C90
+ESP 0012FB50
+EBP 0012FB8C
+ESI 0012FBA4
+EDI 04DC40D0
+
+
+====================
+== 调用NPC
+08078F68  40 67 65 74 62 61 63 6B                          @getback
+
+
+00504830    55              push    ebp                              ; entry edx=param_cmd
+00504831    8BEC            mov     ebp, esp
+00504833    51              push    ecx
+00504834    8955 FC         mov     dword ptr [ebp-4], edx
+00504837    8B45 FC         mov     eax, dword ptr [ebp-4]
+0050483A    E8 8503F0FF     call    00404BC4
+0050483F    33C0            xor     eax, eax
+00504841    55              push    ebp
+00504842    68 8A485000     push    0050488A
+00504847    64:FF30         push    dword ptr fs:[eax]
+0050484A    64:8920         mov     dword ptr fs:[eax], esp
+0050484D    A1 049B6A00     mov     eax, dword ptr [6A9B04]
+00504852    8B00            mov     eax, dword ptr [eax]
+00504854    E8 87211500     call    006569E0
+
+558B??5189????8B????E8????????33??5568????????64????64????A1????????8B??E8
+
+
+
+====================
+005CB1C2    B9 0B000000     mov     ecx, 0B
+005CB1C7    BA 01000000     mov     edx, 1
+005CB1CC    8B45 FC         mov     eax, dword ptr [ebp-4]
+005CB1CF    E8 449AE3FF     call    00404C18
+005CB1D4    8B45 E4         mov     eax, dword ptr [ebp-1C]
+005CB1D7    BA DCBC5C00     mov     edx, 005CBCDC                    ; ASCII "@_automove "
+
+下面是命名表
+
+== 物品结构体
+006FC5F0  04 C1 FA D1 C0 00 00 00 00 00 00 00 00 00 00 00  龙牙...........
+006FC600  06 1F 02 00 45 00 19 00 60 6D 00 00 00 00 1C 00  .E..`m.....
+006FC610  02 00 05 00 00 00 00 00 0A 00 12 00 03 00 06 00  ...........
+006FC620  00 00 00 00 00 00 00 1E 12 FE 1B 00 74 41 52 43  .......?.tARC
+006FC630  03 03 00 00 00 00 00 C8 17 02 15 01 24 02 15 04  .....?$
+006FC640  00 00 00 00 00 00 00 00 00 00 00 00 9E 00 00 00  ............?..
+
+006FC5F0   49412  53754    192      0      0      0      0      0
+006FC600    7942      2     69     25  28000      0      0     28
+006FC610       2      5      0      0     10     18      3      6
+006FC620       0      0      0   7680  65042     27  16756  17234
+006FC630     771      0      0  51200    535    277    548   1045
+006FC640       0      0      0      0      0      0    158      0
+
+006FC5F0   3522871556         192           0           0
+006FC600       139014     1638469       28000     1835008
+006FC610       327682           0     1179658      393219
+006FC620            0   503316480     1834514  1129464180
+006FC630          771  3355443200    18154007    68485668
+006FC640            0           0           0         158
+
+006FC5F0   47622  55255  46060    250      0      0      0      0
+006FC600    4870      0     50     10  10000      0      0     11
+006FC610       0      0      0      0      0      8      0      0
+006FC620       0      0      0      0  65043     27   9997  10000
+006FC630     768      0      0  51200      0      0      0      0
+006FC640       0      0      0      0      0      0      1      0
+
+
+
+====================
+== 回收商人，回收武器（三天）
+
+== 所有重要子程分发 Call
+006783AE    FF55 34                call    dword ptr [ebp+34]
+006783B1    66:83BB 92000000 00    cmp     word ptr [ebx+92], 0
+006783B9    74 11                  je      short 006783CC
+006783BB    57                     push    edi
+006783BC    8BCE                   mov     ecx, esi
+006783BE    8BD3                   mov     edx, ebx
+006783C0    8B83 94000000          mov     eax, dword ptr [ebx+94]
+006783C6    FF93 90000000          call    dword ptr [ebx+90]               ; call
+
+FF????66??????????????74??578B??8B??8B??????????FF
+d [edx+0d8]
+005715A0    55              push    ebp                              ; all command herre
+005715A1    8BEC            mov     ebp, esp
+005715A3    6A 00           push    0
+005715A5    6A 00           push    0
+005715A7    6A 00           push    0
+005715A9    53              push    ebx
+005715AA    8955 FC         mov     dword ptr [ebp-4], edx
+005715AD    8BD8            mov     ebx, eax
+005715AF    33C0            xor     eax, eax
+005715B1    55              push    ebp
+005715B2    68 7D165700     push    0057167D
+005715B7    64:FF30         push    dword ptr fs:[eax]
+005715BA    64:8920         mov     dword ptr fs:[eax], esp
+005715BD    E8 EAF9EFFF     call    00470FAC
+
+
+005715EC    8B45 FC         mov     eax, dword ptr [ebp-4]
+005715EF    8B90 D8000000   mov     edx, dword ptr [eax+D8]			; edx 是命名的名 @main
+005715F5    8B83 EC000000   mov     eax, dword ptr [ebx+EC]
+005715FB    FF93 E8000000   call    dword ptr [ebx+E8]               ; this call !
+
+
+
+== 提交物品主调用Call
+004E57F8    55                   push    ebp                              ; commit start
+004E57F9    8BEC                 mov     ebp, esp
+004E57FB    83C4 E8              add     esp, -18
+004E57FE    53                   push    ebx
+004E57FF    33DB                 xor     ebx, ebx
+004E5801    895D E8              mov     dword ptr [ebp-18], ebx
+004E5804    895D FC              mov     dword ptr [ebp-4], ebx
+004E5807    8BD8                 mov     ebx, eax
+004E5809    33C0                 xor     eax, eax
+004E580B    55                   push    ebp
+004E580C    68 DE584E00          push    004E58DE
+004E5811    64:FF30              push    dword ptr fs:[eax]
+004E5814    64:8920              mov     dword ptr fs:[eax], esp
+004E5817    A1 E4786A00          mov     eax, dword ptr [6A78E4]
+004E581C    8038 00              cmp     byte ptr [eax], 0
+004E581F    75 0E                jnz     short 004E582F
+
+558B??83????5333??89????89????8B??33??5568????????64????64????A1????????80????75
+...
+004E5867    E8 D4161300          call    00616F40                         ; MessageBox 是否要回收[这个弹窗可以直接NOP掉，加上确认返回值 (mov al, 1)]
+004E586C    84C0                 test    al, al
+004E586E    74 26                je      short 004E5896
+004E5870    8D45 E8              lea     eax, dword ptr [ebp-18]
+004E5873    8B15 E4786A00        mov     edx, dword ptr [6A78E4]          ; mir1.006FB914
+004E5879    E8 DEF0F1FF          call    0040495C
+
+== 物品内存结构体
+006FB914   3401764876  3553081814  3584608497         200
+006FB924         7174     1310779       18000     2293760
+006FB934            0           0      786438      393218
+006FB944            0   167772160     2597348  1179661474
+006FB954            0  3355443200           0           0
+006FB964            0           0           0          30
+
+006FB914   53260  51906  47574  54215  51441  54696    200      0
+006FB924    7174      0     59     20  18000      0      0     35
+006FB934       0      0      0      0      6     12      2      6
+006FB944       0      0      0   2560  41444     39  13474  18000
+006FB954       0      0      0  51200      0      0      0      0
+006FB964       0      0      0      0      0      0     30      0
+
+006FB914   47368  54215  51441  54696    200      0      0      0
+006FB924    7174      0     59     20  18000      0      0     35
+006FB934       0      0      1      0      6     12      2      6
+006FB944       0      0      0   2560  41463     39  17684  18000
+006FB954     768      0      0  51200      0      0      0      0
+006FB964       0      0      0      0      0      0     35      0
+
+== 龙牙
+04 C1 FA D1 C0 00 00 00 00 00 00 00 00 00 00 00 06 1F 02 00 45 00 19 00 60 6D 00 00 00 00 1C 00
+02 00 05 00 00 00 00 00 0A 00 12 00 03 00 06 00 00 00 00 00 00 00 00 0A 5A 92 2E 00 AA 39 52 43
+00 03 00 00 00 00 00 C8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2A 00 00 00
+== 玄天
+04 D0 FE CC EC 00 00 00 00 00 00 00 00 00 00 00 06 24 00 FC 4A 00 2C 00 A8 61 00 00 00 00 2B 00
+02 00 01 00 00 00 00 00 08 00 1F 00 00 00 00 00 05 00 0C 00 00 00 00 0F A3 D8 46 00 8A 4C A8 61
+03 03 00 00 00 00 00 C8 1A 03 0A 01 0A 01 1A 0A 00 00 00 00 00 00 00 00 00 00 00 00 8F 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 64 00 0A 00 00 00 00 00 00 00 00
+
+
+== 获取背包物品结构体Call
+
+005080DF    B1 01                mov     cl, 1
+005080E1    8BD6                 mov     edx, esi
+005080E3    8BC3                 mov     eax, ebx
+005080E5    E8 8EB11800          call    00693278                                    ; struct
+
+00693278    53              push    ebx                              ; call struct start
+00693279    56              push    esi
+0069327A    57              push    edi
+0069327B    8BD9            mov     ebx, ecx
+0069327D    8B0D 48806A00   mov     ecx, dword ptr [6A8048]          ; 当前物品内存结构体 d [6A8048]+4
+00693283    8D79 04         lea     edi, dword ptr [ecx+4]
+00693286    8BF0            mov     esi, eax
+00693288    B9 45000000     mov     ecx, 45
+0069328D    F3:A5           rep     movs dword ptr es:[edi], dword p>
+0069328F    66:A5           movs    word ptr es:[edi], word ptr [esi>
+
+5356578B??8B??????????8D????8B??B9????????F3??66
+
+== 需要Nop掉Crash的点
+004E58AD    8902            mov     dword ptr [edx], eax
+004E58AF    A1 8C7C6A00     mov     eax, dword ptr [6A7C8C]
+004E58B4    E8 2FEEF1FF     call    004046E8
+004E58B9    8BC3            mov     eax, ebx
+004E58BB    E8 64010000     call    004E5A24                         ; crash point
+004E58C0    33C0            xor     eax, eax
+004E58C2    5A              pop     edx
+004E58C3    59              pop     ecx
+004E58C4    59              pop     ecx
+004E58C5    64:8910         mov     dword ptr fs:[eax], edx
+004E58C8    68 E5584E00     push    004E58E5
+
+89??A1????????E8????????8B??E8????????33??5A595964????68
+====================
+== 公会公告改可编辑状态
+
+EBX == 0x00000001 时 不走 je 向下继续执行，变成可编辑状态
+
+00592856    3A9E C0000000   cmp     bl, byte ptr [esi+C0]            ; call 公会公告
+0059285C    0F84 9E000000   je      00592900
+00592862    889E C0000000   mov     byte ptr [esi+C0], bl
+00592868    8BD3            mov     edx, ebx
+0059286A    80F2 01         xor     dl, 1
+0059286D    8B86 C4000000   mov     eax, dword ptr [esi+C4]
+00592873    E8 8CD10D00     call    0066FA04
+
+3A??????????0F??????????88??????????8B??80????8B??????????E8
+
+===========================
+
+选择人物界面
+model=mir_continue_login&data={"popt_id" : "mp00005526292bav.sdo", "mac": "00-50-56-C0-00-08", "client_type": 0, "version": "131073"}&sign=b82a303b1ac656d85539e3c2b2974a8chttp://tj.game.sdo.com:8080/cgi-bin/receivedata
+
+00643914    E8 A737DCFF     call    004070C0                         ; jmp 到 kernel32.OutputDebugStringA
+00643919    B8 02000000     mov     eax, 2
+0064391E    E8 71F9DBFF     call    00403294
+00643923    8BD8            mov     ebx, eax
+00643925    8D45 FC         lea     eax, dword ptr [ebp-4]
+00643928    8B149D 08566900 mov     edx, dword ptr [ebx*4+695608]
+0064392F    E8 4C0EDCFF     call    00404780
+
+E8????????B8????????E8????????8B??8D????8B????????????E8
+
+0x00643914
+
+================================
+
+--EBX
+0477B808  00000BC3		//00000BC3-走路指令, 00000BC5-跑步指令
+0477B80C  0000001D		//X 坐标
+0477B810  00000013		//Y 坐标
+0477B814  00000002		//哪个方面 0-上,1-右上,2-右,3-右下,4-下,5-左下,6-左,7-左上
+
+ECX 0000001B	// X
+EDX 00000BC3	// 走咯指令
+DWORD __stdcall Move(DWORD toward, DWORD Y);
+
+005BC102    C703 D20B0000   mov     dword ptr [ebx], 0BD2
+005BC108    8B43 08         mov     eax, dword ptr [ebx+8]
+005BC10B    50              push    eax
+005BC10C    8B43 0C         mov     eax, dword ptr [ebx+C]
+005BC10F    50              push    eax
+005BC110    8B4B 04         mov     ecx, dword ptr [ebx+4]
+005BC113    8B13            mov     edx, dword ptr [ebx]
+005BC115    8BC6            mov     eax, esi
+005BC117    E8 40350000     call    005BF65C                         ; top 4 mov real call addr
+
+C7??????????8B????508B????508B????8B??8B??E8
+
+============================
+==锁定目标
+0053EAC9    A1 A4FF6900     mov     eax, dword ptr [69FFA4]	;敌人名字基址
+0053EACE    8B00            mov     eax, dword ptr [eax]
+0053EAD0    FF70 34         push    dword ptr [eax+34]		;敌人名字偏移
+
+============================
+==发送喊话可疑位置
+00691089  |.  B9 24116900   ||mov     ecx, 00691124                  ;  是违禁字，消息未发出
+0069108E  |.  8B55 EC       ||mov     edx, dword ptr [ebp-14]
+00691091  |.  E8 6E39D7FF   ||call    00404A04
+
+============================
+
+==自己回显Call
+
+006251C6    68 0000FF00     push    0FF0000
+006251CB    A1 0CDB6A00     mov     eax, dword ptr [6ADB0C]
+006251D0    8B00            mov     eax, dword ptr [eax]
+006251D2    B9 FFFFFF00     mov     ecx, 0FFFFFF
+006251D7    8B55 FC         mov     edx, dword ptr [ebp-4]
+006251DA    E8 0DADFBFF     call    005DFEEC                         ; 自已回显Call
+006251DF    8973 24         mov     dword ptr [ebx+24], esi
+006251E2    33C0            xor     eax, eax
+006251E4    5A              pop     edx
+006251E5    59              pop     ecx
+006251E6    59              pop     ecx
+
+68????????A1????????8B??B9????????8B????E8????????89????33??5A5959
+
+
+
+==发送喊话消息！
+0062B854    55              push    ebp                              ; send msg start
+0062B855    8BEC            mov     ebp, esp
+0062B857    83C4 C4         add     esp, -3C
+0062B85A    53              push    ebx
+0062B85B    56              push    esi
+0062B85C    57              push    edi
+0062B85D    33C9            xor     ecx, ecx
+0062B85F    894D EC         mov     dword ptr [ebp-14], ecx
+0062B862    8BDA            mov     ebx, edx
+0062B864    8BF8            mov     edi, eax
+0062B866    33C0            xor     eax, eax
+
+
+
+==接收的喊话消息
+
+ecx 是结构体首地址	
+{
+DWORD dwpTChatLineInfo
+DWORD dwUnknow
+DWORD dwFontColor
+DWORD dwBackColor 
+}
+EDX 是内容
+
+0041D664    53              push    ebx                                    ; 特殊，普通喊话都走
+0041D665    56              push    esi
+0041D666    57              push    edi
+0041D667    55              push    ebp
+0041D668    51              push    ecx
+0041D669    8BF9            mov     edi, ecx
+0041D66B    8BF2            mov     esi, edx
+0041D66D    8BD8            mov     ebx, eax
+0041D66F    807B 1C 00      cmp     byte ptr [ebx+1C], 0
+0041D673    75 08           jnz     short 0041D67D
+0041D675    8B43 14         mov     eax, dword ptr [ebx+14]
+0041D678    890424          mov     dword ptr [esp], eax
+0041D67B    EB 2E           jmp     short 0041D6AB
+
+
+
+============================
+
+004048F0    31C9               xor     ecx, ecx                               ; EDX  [乱七八糟都走]
+004048F2    85D2               test    edx, edx
+004048F4    74 21              je      short 00404917
+004048F6    52                 push    edx
+004048F7    3A0A               cmp     cl, byte ptr [edx]
+004048F9    74 17              je      short 00404912
+004048FB    3A4A 01            cmp     cl, byte ptr [edx+1]
+004048FE    74 11              je      short 00404911
+00404900    3A4A 02            cmp     cl, byte ptr [edx+2]
+00404903    74 0B              je      short 00404910
+00404905    3A4A 03            cmp     cl, byte ptr [edx+3]
+00404908    74 05              je      short 0040490F
+0040490A    83C2 04            add     edx, 4
+0040490D  ^ EB E8              jmp     short 004048F7
+
+31??85??74??523A??74??3A????74??3A????74??3A????74??83????EB
+
+
+
+
+
+===========================
+
+Breakpoints
+地址       模块       激活                       反汇编                                注释
+00404D44   mir1       已禁止                        push    ebx                           各种字符串处理函数，在这里可以拿到很多关键字符然后向上找
+0053EAE0   mir1       已禁止                        push    eax                           send msg main call
+006213CB   mir1       已禁止                        call    dword ptr [esi+A0]            zui wai ceng
+00624EA8   mir1       已禁止                        call    0062C244                      white
+00624EB8   mir1       已禁止                        call    00629880                      yellow, fred
+00624EC8   mir1       已禁止                        call    00635B54                      si liao
+00624ED8   mir1       已禁止                        call    0062B404                      hanghui
+00690B74   mir1       已禁止                        push    ebp                           real recv msg addr !
+68019B35   rsaenh     已禁止                        mov     byte ptr [edi], bl            选人时改变
+00624948    E8 2FEB0000     call    0063347C                         ; 粉红字
+
+
+d ecx		// 喊话内容
+00629880    55              push    ebp							;yellow , red
+00629881    8BEC            mov     ebp, esp
+00629883    6A 00           push    0
+00629885    6A 00           push    0
+00629887    53              push    ebx
+00629888    56              push    esi
+00629889    8BF1            mov     esi, ecx
+0062988B    8BDA            mov     ebx, edx
+0062988D    33C0            xor     eax, eax
+0062988F    55              push    ebp
+00629890    68 7A996200     push    0062997A
+00629895    64:FF30         push    dword ptr fs:[eax]
+00629898    64:8920         mov     dword ptr fs:[eax], esp
+0062989B    A1 A8066A00     mov     eax, dword ptr [6A06A8]
+006298A0    8038 00         cmp     byte ptr [eax], 0
+006298A3    0F84 B6000000   je      0062995F
+006298A9    8D45 FC         lea     eax, dword ptr [ebp-4]
+006298AC    8BD6            mov     edx, esi
+006298AE    E8 3DB0DDFF     call    004048F0
+
+558B??6A??6A??53568B??8B??33??5568????????64????64????A1????????80????0F??????????8D????8B??E8
+558B??6A??6A??53568B??8B??33??5568????????64????64????A1????????80
+
+
+
+d [eax]		// 喊话内容
+
+00690B74    55                   push    ebp                              ; real recv msg addr !
+00690B75    8BEC                 mov     ebp, esp
+00690B77    6A 00                push    0
+00690B79    6A 00                push    0
+00690B7B    53                   push    ebx
+00690B7C    56                   push    esi
+00690B7D    8BF0                 mov     esi, eax
+00690B7F    33C0                 xor     eax, eax
+00690B81    55                   push    ebp
+00690B82    68 270C6900          push    00690C27
+00690B87    64:FF30              push    dword ptr fs:[eax]
+00690B8A    64:8920              mov     dword ptr fs:[eax], esp
+00690B8D    803D 2C0C6F00 00     cmp     byte ptr [6F0C2C], 0
+00690B94    74 76                je      short 00690C0C
+00690B96    8B16                 mov     edx, dword ptr [esi]
+00690B98    B8 3C0C6900          mov     eax, 00690C3C                    ; ASCII ": "
+00690B9D    E8 5A41D7FF          call    00404CFC
+
+558B??6A??6A??53568B??33??5568????????64????64????80????????????74??8B??B8????????E8
+558B??6A??6A??53568B??33??5568????????64????64????80		// ok
+
+
+
+
+
+==================
+==封包提交
+0012FA5C   00473B0C  /CALL 到 send 来自 mir1.00473B07
+0012FA60   000003E4  |Socket = 3E4
+0012FA64   010BEED0  |Data = 010BEED0
+0012FA68   00000028  |DataSize = 28 (40.)
+0012FA6C   00000000  \Flags = 0
+
+
+
+d [[699DEC]]    人物结构体
+d [[699DEC]]+8 	人物坐标
+d [[69A424]]	当前地图名（以0结尾）
+
+
+
+==================
+00633153    50              push    eax
+00633154    8A43 06         mov     al, byte ptr [ebx+6]
+00633157    E8 2CA2E4FF     call    0047D388
+0063315C    8BC8            mov     ecx, eax
+0063315E    A1 0CDB6A00     mov     eax, dword ptr [6ADB0C]          ; eax 全局取值
+00633163    8B00            mov     eax, dword ptr [eax]
+00633165    8B55 FC         mov     edx, dword ptr [ebp-4]
+00633168    E8 7FCDFAFF     call    005DFEEC                         ; 回显Call外层!!!
+0063316D    A1 A0E36A00     mov     eax, dword ptr [6AE3A0]
+00633172    8B00            mov     eax, dword ptr [eax]
+00633174    8B55 FC         mov     edx, dword ptr [ebp-4]
+00633177    E8 D07FFCFF     call    005FB14C
+
+508A????E8????????8B??A1????????8B??8B????E8????????A1????????8B??8B????E8
+508A****E8********8B**A1********8B**8B****E8********A1********8B**8B****E8
+
+==本地回显
+
+PARAM => 字体背景颜色
+EAX => 取值参照回显CALL外层
+ECX => 字体颜色	[AGBR]
+EDX => 内容[ALL]
+
+005DFEEC    55              push    ebp                              ; 本地回显Call!!
+005DFEED    8BEC            mov     ebp, esp
+005DFEEF    83C4 E0         add     esp, -20
+005DFEF2    53              push    ebx
+005DFEF3    56              push    esi
+005DFEF4    57              push    edi
+005DFEF5    33DB            xor     ebx, ebx
+005DFEF7    895D E0         mov     dword ptr [ebp-20], ebx
+005DFEFA    895D E4         mov     dword ptr [ebp-1C], ebx
+005DFEFD    895D E8         mov     dword ptr [ebp-18], ebx
+005DFF00    895D EC         mov     dword ptr [ebp-14], ebx
+005DFF03    894D F4         mov     dword ptr [ebp-C], ecx
+005DFF06    8955 F8         mov     dword ptr [ebp-8], edx
+005DFF09    8945 FC         mov     dword ptr [ebp-4], eax
+005DFF0C    8B45 F8         mov     eax, dword ptr [ebp-8]
+005DFF0F    E8 944CE2FF     call    00404BA8
+
+558B??83????53565733??89????89????89????89????89????89????89????8B????E8
+558B**83C4E053565733**89****89****89****89****89****89****89****8B****E8
+0x00683678
+CHAR szContext[] = {"\x01\x00\x00\x00\x0E\x00\x00\x00this is a test\0"};
+					标志位				发送回显示文字的长度
+
+==本地关键字过滤Call
+
+00404A04    85D2            test    edx, edx                         ; 本地关键字过滤Call
+00404A06    74 61           je      short 00404A69
+00404A08    85C9            test    ecx, ecx
+00404A0A  ^ 0F84 2CFDFFFF   je      0040473C
+00404A10    3B10            cmp     edx, dword ptr [eax]
+00404A12    74 5C           je      short 00404A70
+00404A14    3B08            cmp     ecx, dword ptr [eax]
+00404A16    74 0E           je      short 00404A26
+00404A18    50              push    eax
+00404A19    51              push    ecx
+00404A1A    E8 1DFDFFFF     call    0040473C
+00404A1F    5A              pop     edx
+00404A20    58              pop     eax
+00404A21  ^ E9 9AFFFFFF     jmp     004049C0
+
+85??74??85??0F??????????3B??74??3B??74??5051E8????????5A58E9
+
+直接修改为
+00404A04    C3              retn                                     ; 本地关键字过滤Call
+00404A05    90              nop
+
+C390
+
+==喊话
+
+喊话接口
+005CD000   /75 24           jnz     short 005CD026
+005CD002   |6A 00           push    0
+005CD004   |6A 00           push    0
+005CD006   |8D45 EC         lea     eax, dword ptr [ebp-14]
+005CD009   |50              push    eax
+005CD00A   |33C9            xor     ecx, ecx
+005CD00C   |33D2            xor     edx, edx
+005CD00E   |66:B8 D60B      mov     ax, 0BD6
+005CD012   |E8 B9C70500     call    006297D0
+005CD017    A1 80DB6A00     mov     eax, dword ptr [6ADB80]
+005CD01C    8B00            mov     eax, dword ptr [eax]
+005CD01E    8B55 FC         mov     edx, dword ptr [ebp-4]
+005CD021    E8 C6E50500     call    0062B5EC                         ; 喊话接口外层
+
+75??6A??6A??8D????5033??33??66??????E8????????A1????????8B??8B????E8
+
+0136D810  08                                               
+
+
+0062B5EC    55              push    ebp                              ; edx, 属于喊话内容, ecx 可能是喊话的类型
+0062B5ED    8BEC            mov     ebp, esp
+0062B5EF    83C4 C4         add     esp, -3C
+0062B5F2    53              push    ebx
+0062B5F3    56              push    esi
+0062B5F4    57              push    edi
+0062B5F5    33C9            xor     ecx, ecx
+0062B5F7    894D EC         mov     dword ptr [ebp-14], ecx
+0062B5FA    8BDA            mov     ebx, edx
+0062B5FC    8BF8            mov     edi, eax
+0062B5FE    33C0            xor     eax, eax
+0062B600    55              push    ebp
+0062B601    68 05B86200     push    0062B805
+0062B606    64:FF30         push    dword ptr fs:[eax]
+
+
+
+
+d [[699DEC]]+8 人物坐标
+d [[69A424]]	当前地图名（以0结尾）
+
+0053E41C  5D D7 F8 B1 EA 3A 5B                             ]坐标:[
+
+
+
+0053E35A    68 08E45300     push    0053E408                                   ; ASCII "!~ 我正在["
+0053E35F    A1 24A46900     mov     eax, dword ptr [69A424]
+0053E364    FF30            push    dword ptr [eax]
+0053E366    68 1CE45300     push    0053E41C
+0053E36B    8D55 F8         lea     edx, dword ptr [ebp-8]
+0053E36E    A1 EC9D6900     mov     eax, dword ptr [699DEC]						; 人物结构体地址
+0053E373    8B00            mov     eax, dword ptr [eax]
+0053E375    0FB740 08       movzx   eax, word ptr [eax+8]
+0053E379    E8 72C6ECFF     call    0040A9F0
+
+68????????A1????????FF??68????????8D????A1????????8B??0F??????E8
+68********A1********FF**68********8D****A1********8B**0F******E8
+
+mov     eax, dword ptr [696DFC]
+
+00402D03 - C1 F9 02 - sar ecx,02
+00402D06 - 78 11 - js 00402D19
+00402D08 - FD - std  <<
+00402D09 - F3 A5 - repe movsd 
+00402D0B - 89 C1  - mov ecx,eax
+
+EAX=0000000A
+EBX=00000009
+ECX=00000001
+EDX=00E48540
+ESI=0053E40A
+EDI=00E48542
+ESP=0012FB70
+EBP=0012FBD4
+EIP=00402D09
+
+==================
+1、查找地图上的所有物品
+	个数
+	
+d [[[[6A06AC]]+4]+2*4]+10		//物品名
+d [[6A06AC]]+8					//物品数量
+//物品名字符串格式
+0107A520  0A CB E6 BB FA B4 AB CB CD BE ED A9              .随机传送卷┰轮
+		  |
+		字符长度
+
+0062CDFF    A1 AC066A00     mov     eax, dword ptr [6A06AC]          ; 基址
+0062CE04    8B00            mov     eax, dword ptr [eax]
+0062CE06    8BD3            mov     edx, ebx
+0062CE08    E8 57E3DEFF     call    0041B164                         ; 地图物品
+0062CE0D    EB 04           jmp     short 0062CE13
+0062CE0F    43              inc     ebx
+0062CE10    4E              dec     esi
+0062CE11  ^ 75 D0           jnz     short 0062CDE3
+0062CE13    5F              pop     edi
+0062CE14    5E              pop     esi
+0062CE15    5B              pop     ebx
+0062CE16    C3              retn
+
+A1????????8B??8B??E8????????EB??434E75??5F5E5BC3
+
+
+0041B12D - 8B 43 04  - mov eax,[ebx+04]
+0041B130 - 89 3C B0   - mov [eax+esi*4],edi
+0041B133 - FF 43 08  - inc [ebx+08] <<		//write
+0041B136 - 85 FF  - test edi,edi
+0041B138 - 74 0B - je 0041B145
+
+	
+	
+2、捡起物品事件
+===================
+
+
+版本
+0012FC50   7FFDFC00  |FileName = "D:\?,A2,"",B4,"笸鏫热血",B4,"",AB,"奇\data\ver.dat"
+
+0012FAB8   0217CF7C  |CommandLine = """D:\path\mir1.dat"" /ip:119.147.188.55 /AreaID:125"	// 游戏主进程运行命令行
+
+
+D:\Game\SD\热血传奇\Wav\ :
+
+Log-in-long2.wav	//登录界面声音文件
+
+D:\Game\SD\热血传奇\ :
+
+mirsettings.exe		//简单游戏配置器
+
+user.ini			//用户游戏配置
+	/*
+	[Settings]
+	UseIGW=0		//圈圈
+	WindowMode=1	//是否窗口化
+	sendinfo=1
+	*/

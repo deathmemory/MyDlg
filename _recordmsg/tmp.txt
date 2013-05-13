@@ -1,0 +1,290 @@
+接收所有喊话和人物喊话拼接
+发送本地回显信息
+发送喊话！
+关键字过滤！
+
+00592856    3A9E C0000000   cmp     bl, byte ptr [esi+C0]            ; call 公会公告
+0059285C    0F84 9E000000   je      00592900
+00592862    889E C0000000   mov     byte ptr [esi+C0], bl
+00592868    8BD3            mov     edx, ebx
+0059286A    80F2 01         xor     dl, 1
+0059286D    8B86 C4000000   mov     eax, dword ptr [esi+C4]
+00592873    E8 8CD10D00     call    0066FA04
+
+3A??????????0F??????????88??????????8B??80????8B??????????E8
+
+
+
+00592852 - 8B DA  - mov ebx,edx
+00592854 - 8B F0  - mov esi,eax
+00592856 - 3A 9E C0000000  - cmp bl,[esi+000000C0] <<
+0059285C - 0F84 9E000000 - je 00592900
+00592862 - 88 9E C0000000  - mov [esi+000000C0],bl
+
+EAX=0446CBE0
+EBX=00000000
+ECX=0446CCC0
+EDX=00000000
+ESI=0446CBE0
+EDI=0000000D
+ESP=0012FB74
+EBP=0012FB84
+EIP=0059285C
+
+
+00592856 - 3A 9E C0000000  - cmp bl,[esi+000000C0]
+0059285C - 0F84 9E000000 - je 00592900
+00592862 - 88 9E C0000000  - mov [esi+000000C0],bl <<
+00592868 - 8B D3  - mov edx,ebx
+0059286A - 80 F2 01 - xor dl,01
+
+EAX=0446CBE0
+EBX=00000000
+ECX=0446CCC0
+EDX=00000000
+ESI=0446CBE0
+EDI=0000000D
+ESP=0012FB74
+EBP=0012FB84
+EIP=00592868
+
+
+
+
+=============
+
+push param1	// 物品名称 （随机传送卷）
+
+EAX 01110890 ASCII "xPN"
+ECX 00000000
+EDX 001AE7CE
+EBX 01110890 ASCII "xPN"
+ESP 0012FB38
+EBP 0012FB64
+ESI 0000000D
+EDI 00000003
+EIP 004E566B mir1.004E566B
+C 0  ES 0023 32位 0(FFFFFFFF)
+P 1  CS 001B 32位 0(FFFFFFFF)
+A 0  SS 0023 32位 0(FFFFFFFF)
+Z 1  DS 0023 32位 0(FFFFFFFF)
+S 0  FS 003B 32位 7FFDF000(FFF)
+T 0  GS 0000 NULL
+D 0
+O 0  LastErr ERROR_SUCCESS (00000000)
+EFL 00000246 (NO,NB,E,BE,NS,PE,GE,LE)
+ST0 empty -??? FFFF 00000000 00000000
+ST1 empty -NAN FFFF A46EB4AE CD92D635
+ST2 empty -??? FFFF 00000000 00000000
+ST3 empty -??? FFFF 52275A47 62C96B0A
+ST4 empty -??? FFFF 00000000 00000000
+ST5 empty 106.00000000000000000
+ST6 empty 1.0000000000000000000
+ST7 empty 0.0
+               3 2 1 0      E S P U O Z D I
+FST 0020  Cond 0 0 0 0  Err 0 0 1 0 0 0 0 0  (GT)
+FCW 1272  Prec NEAR,53  掩码    1 1 0 0 1 0
+
+
+==========================
+00540904    53              push    ebx                              ; start
+00540905    8BDA            mov     ebx, edx
+00540907    E8 F405F3FF     call    00470F00
+0054090C    8B15 B8816900   mov     edx, dword ptr [6981B8]          ; mir1.006938AC
+00540912    2B02            sub     eax, dword ptr [edx]
+00540914    3D E8030000     cmp     eax, 3E8
+00540919    76 42           jbe     short 0054095D
+0054091B    E8 E005F3FF     call    00470F00
+// mov dl, type
+538B??E8????????8B??????????2B??3D????????76??E8
+538B**E8********8B**********2B**3D********76**E8
+我是想问一下,如果外扌圭里加多一个召唤英雄不同职业的快捷键怎么样
+比如我按Ctrl+1召唤战士职业的英雄,Ctrl+2召唤法师职业,Ctrl+3道士
+
+EAX 00E29E50xxx
+ECX 0000000Axxx
+EDX 045D7C02vvv
+EBX 045F92F0xxx
+ESP 0012FB5C
+EBP 0012FB64
+ESI 045D7C50
+EDI 00000006
+EIP 005331DF mir1.005331DF
+C 0  ES 0023 32位 0(FFFFFFFF)
+P 1  CS 001B 32位 0(FFFFFFFF)
+A 0  SS 0023 32位 0(FFFFFFFF)
+Z 1  DS 0023 32位 0(FFFFFFFF)
+S 0  FS 003B 32位 7FFDF000(FFF)
+T 0  GS 0000 NULL
+D 0
+O 0  LastErr ERROR_SUCCESS (00000000)
+EFL 00000246 (NO,NB,E,BE,NS,PE,GE,LE)
+ST0 empty -NAN FFFF FFFFFFFF FFFFFFFF
+ST1 empty -NAN FFFF 94297BC8 62C77347
+ST2 empty -??? FFFF 00000000 00000000
+ST3 empty -??? FFFF 4A0439E4 316339A3
+ST4 empty -??? FFFF 00000000 00000000
+ST5 empty 30.000000000000000000
+ST6 empty 0.0
+ST7 empty -NAN FFFF F7DEF7DE F7DEF7DE
+               3 2 1 0      E S P U O Z D I
+FST 0020  Cond 0 0 0 0  Err 0 0 1 0 0 0 0 0  (GT)
+FCW 1272  Prec NEAR,53  掩码    1 1 0 0 1 0
+
+
+==============
+005331C1   /E9 C0000000     jmp     00533286
+005331C6   |3BB3 04010000   cmp     esi, dword ptr [ebx+104]
+005331CC   |75 1B           jnz     short 005331E9
+005331CE   |A1 90856900     mov     eax, dword ptr [698590]
+005331D3   |8B00            mov     eax, dword ptr [eax]
+005331D5   |8A50 04         mov     dl, byte ptr [eax+4]
+005331D8   |A1 88866900     mov     eax, dword ptr [698688]
+005331DD   |8B00            mov     eax, dword ptr [eax]
+005331DF   |E8 20D70000     call    00540904                         ; call hero 6, 副将Call
+
+
+EAX 00E29E50
+ECX 00000004
+EDX 045D5702
+EBX 04605450
+ESP 0012FB5C
+EBP 0012FB64
+ESI 045D5740
+EDI 00000003
+EIP 005331DF mir1.005331DF
+C 0  ES 0023 32位 0(FFFFFFFF)
+P 1  CS 001B 32位 0(FFFFFFFF)
+A 0  SS 0023 32位 0(FFFFFFFF)
+Z 1  DS 0023 32位 0(FFFFFFFF)
+S 0  FS 003B 32位 7FFDD000(FFF)
+T 0  GS 0000 NULL
+D 0
+O 0  LastErr ERROR_SUCCESS (00000000)
+EFL 00200246 (NO,NB,E,BE,NS,PE,GE,LE)
+ST0 empty 7.8758982419816062200e+4036
+ST1 empty 0.0000009332044458830e-4933
+ST2 empty +UNORM 003B 0012FE8C 00000000
+ST3 empty -UNORM FE84 00200286 0000001B
+ST4 empty -7.0746137790710559290e+1772
+ST5 empty -UNORM E3BD 001D0000 01201272
+ST6 empty +UNORM 1F80 00000000 882CADA0
+ST7 empty 459.00000000000000000
+               3 2 1 0      E S P U O Z D I
+FST 0020  Cond 0 0 0 0  Err 0 0 1 0 0 0 0 0  (GT)
+FCW 1272  Prec NEAR,53  掩码    1 1 0 0 1 0
+
+
+
+
+============================
+
+00512B6F    8B15 C0846300   mov     edx, dword ptr [6384C0]          ; mir1.0063850C
+00512B75    E8 2E0FEFFF     call    00403AA8
+00512B7A    8B40 3C         mov     eax, dword ptr [eax+3C]
+00512B7D    8B15 90856900   mov     edx, dword ptr [698590]          ; mir1.006E80EC
+00512B83    8B12            mov     edx, dword ptr [edx]
+00512B85    8942 04         mov     dword ptr [edx+4], eax           ; 召唤英雄判断英雄职业的值
+00512B88    8BC3            mov     eax, ebx
+00512B8A    E8 85FFFFFF     call    00512B14
+00512B8F    5E              pop     esi
+00512B90    5B              pop     ebx
+00512B91    5D              pop     ebp
+00512B92    C2 0400         retn    4
+
+
+
+00512B7D - 8B 15 90856900  - mov edx,[00698590]
+00512B83 - 8B 12  - mov edx,[edx]
+00512B85 - 89 42 04  - mov [edx+04],eax <<
+00512B88 - 8B C3  - mov eax,ebx
+00512B8A - E8 85FFFFFF - call 00512B14
+
+EAX=00000001
+EBX=0478C240
+ECX=0063850C
+EDX=046A8B60
+ESI=010F90B0
+EDI=0000000A
+ESP=0012FB7C
+EBP=0012FB84
+EIP=00512B88
+
+
+
+
+
+004FF76C    55              push    ebp                              ; @NewGvWine_01
+
+
+EAX 0469F900
+ECX 00000026
+EDX 010C2A98
+EBX 0469F900
+ESP 0012FB58
+EBP 0012FB74
+ESI 00000026
+EDI 00000007
+EIP 00565C63 mir1.00565C63
+C 0  ES 0023 32位 0(FFFFFFFF)
+P 0  CS 001B 32位 0(FFFFFFFF)
+A 0  SS 0023 32位 0(FFFFFFFF)
+Z 0  DS 0023 32位 0(FFFFFFFF)
+S 0  FS 003B 32位 7FFDF000(FFF)
+T 0  GS 0000 NULL
+D 0
+O 0  LastErr ERROR_SUCCESS (00000000)
+EFL 00000202 (NO,NB,NE,A,NS,PO,GE,G)
+MM0 0000 0000 9800 0000
+MM1 0000 0000 0000 0000
+MM2 0000 0000 9800 0000
+MM3 8000 0000 0000 0000
+MM4 9E00 0000 0000 0000
+MM5 0000 0000 0000 0000
+MM6 DA7A 6400 0000 0000
+MM7 B600 0000 0000 0000
+
+
+EAX 0469F900
+ECX 00000023
+EDX 00E6B948
+EBX 0469F900
+ESP 0012FB54
+EBP 0012FB74
+ESI 00000023
+EDI 00000006
+EIP 004FF76C mir1.004FF76C
+C 0  ES 0023 32位 0(FFFFFFFF)
+P 0  CS 001B 32位 0(FFFFFFFF)
+A 0  SS 0023 32位 0(FFFFFFFF)
+Z 0  DS 0023 32位 0(FFFFFFFF)
+S 0  FS 003B 32位 7FFDF000(FFF)
+T 0  GS 0000 NULL
+D 0
+O 0  LastErr ERROR_SUCCESS (00000000)
+EFL 00000202 (NO,NB,NE,A,NS,PO,GE,G)
+ST0 empty -??? FFFF 00000000 98000000
+ST1 empty -??? FFFF 00000000 00000000
+ST2 empty -??? FFFF 00000000 98000000
+ST3 empty 16.000000000000000000
+ST4 empty 632.00000000000000000
+ST5 empty 0.0
+ST6 empty 3579545.0000000000000
+ST7 empty 90.000000000000000000
+               3 2 1 0      E S P U O Z D I
+FST 0020  Cond 0 0 0 0  Err 0 0 1 0 0 0 0 0  (GT)
+FCW 1272  Prec NEAR,53  掩码    1 1 0 0 1 0
+
+004FF76C    55              push    ebp                              ; @NewGvWine_01
+004FF76D    8BEC            mov     ebp, esp
+004FF76F    51              push    ecx
+004FF770    8955 FC         mov     dword ptr [ebp-4], edx
+004FF773    8B45 FC         mov     eax, dword ptr [ebp-4]
+004FF776    E8 2D54F0FF     call    00404BA8
+004FF77B    33C0            xor     eax, eax
+004FF77D    55              push    ebp
+004FF77E    68 C6F74F00     push    004FF7C6
+004FF783    64:FF30         push    dword ptr fs:[eax]
+004FF786    64:8920         mov     dword ptr fs:[eax], esp
+004FF789    A1 FC6D6900     mov     eax, dword ptr [696DFC]
+

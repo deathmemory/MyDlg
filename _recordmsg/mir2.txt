@@ -1,0 +1,29 @@
+1、地面物品判断，如果有指定物品则提醒（在天关挂机，捡物品）
+2、喊话判断，如果有关心物品则提醒
+3、私聊提醒（收东西或挂狐月缘）
+
+data\wordfilter.dat	//接收文字过滤
+data\keywords.zlst	//发送文字过滤
+
+
+版本
+0012FC50   7FFDFC00  |FileName = "D:\?,A2,"",B4,"笸鏫热血",B4,"",AB,"奇\data\ver.dat"
+
+0012FAB8   0217CF7C  |CommandLine = """D:\path\mir1.dat"" /ip:119.147.188.55 /AreaID:125"	// 游戏主进程运行命令行
+
+
+D:\Game\SD\热血传奇\Wav\ :
+
+Log-in-long2.wav	//登录界面声音文件
+
+D:\Game\SD\热血传奇\ :
+
+mirsettings.exe		//简单游戏配置器
+
+user.ini			//用户游戏配置
+	/*
+	[Settings]
+	UseIGW=0		//圈圈
+	WindowMode=1	//是否窗口化
+	sendinfo=1
+	*/

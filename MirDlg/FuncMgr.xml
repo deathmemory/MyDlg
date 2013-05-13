@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="800,600" sizebox="4,4,6,6" caption="0,0,0,30">
+    <VerticalLayout name="VerticalLayoutUI1" pos="525,165,585,195" width="60" height="30" bkcolor="#FFFFFFFF">
+        <HorizontalLayout name="HorizontalLayoutUI1" pos="0,0,800,22" width="800" height="22">
+            <HorizontalLayout name="HorizontalLayoutUI2" pos="0,0,591,22" width="591" height="22" />
+            <HorizontalLayout name="HorizontalLayoutUI3" pos="591,0,801,22" width="210" height="22">
+                <Button name="btn_close" float="true" pos="165,0,210,22" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_close2-47x22.png&apos; source=&apos;0,0,47,22&apos;" hotimage="file=&apos;btn_close2-47x22.png&apos; source=&apos;47,0,94,22&apos;" pushedimage="file=&apos;btn_close2-47x22.png&apos; source=&apos;94,0,141,22&apos;" disabledimage="file=&apos;btn_close2-47x22.png&apos; source=&apos;141,0,188,22&apos;" />
+            </HorizontalLayout>
+        </HorizontalLayout>
+        <HorizontalLayout name="HorizontalLayoutUI4" pos="0,22,800,572" width="800" height="550">
+            <VerticalLayout name="VerticalLayoutUI2" pos="0,0,160,547" width="160" height="547">
+                <Button name="ButtonUI1" text="基本设置" float="true" pos="10,7,151,37" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI2" text="地图物品提示" float="true" pos="9,52,150,82" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+            </VerticalLayout>
+        </HorizontalLayout>
+        <HorizontalLayout name="HorizontalLayoutUI5" pos="146,584,946,614" width="800" height="30" />
+    </VerticalLayout>
+</Window>
